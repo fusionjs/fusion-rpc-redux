@@ -53,6 +53,19 @@ type Action<T> = {
 
 For example, if `rpcId` is `doSomething`, `createRPCActions` generates the actions `DO_SOMETHING_START`, `DO_SOMETHING_SUCCESS` and `DO_SOMETHING_FAILURE`;
 
+##### Failure payload
+
+The error payload has the following type:
+
+```js
+type FailurePayload = {
+  originalError: any,
+  message: string,
+  code: string,
+  meta: any,
+};
+```
+
 #### `createRPCReducer`
 
 ```js
