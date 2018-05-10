@@ -121,7 +121,7 @@ export function createRPCHandler({
   if (!actions) {
     actions = createRPCActions(rpcId);
   }
-  const r = (args: any) => {
+  return (args: any) => {
     if (mapStateToParams) {
       args = mapStateToParams(store.getState());
     }
@@ -145,5 +145,4 @@ export function createRPCHandler({
         return e;
       });
   };
-  return r;
 }
