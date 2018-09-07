@@ -82,7 +82,7 @@ function getNormalizedReducers<S, A: ActionType>(
 export function createRPCReducer<S, A: ActionType>(
   rpcId: string,
   reducers: RPCReducersType<S, A>,
-  startValue: S
+  startValue: any = {}
 ): Reducer<S, A> {
   const actionNames = createActionNames(rpcId);
   const normalizedReducers = getNormalizedReducers(reducers);
