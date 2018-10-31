@@ -26,7 +26,7 @@ export const withRPCReactor = (
   }: {
     propName?: string,
     transformParams?: (params: any) => any,
-    mapStateToParams?: (state: any) => any,
+    mapStateToParams?: (state: any, args?: any, ownProps?: any) => any,
   } = {}
 ) => {
   return withRPCRedux(rpcId, {
@@ -49,7 +49,7 @@ export function withRPCRedux(
     propName?: string,
     actions: any,
     transformParams?: (params: any) => any,
-    mapStateToParams?: (state: any) => any,
+    mapStateToParams?: (state: any, args?: any, ownProps?: any) => any,
   } = {}
 ): (React.ComponentType<*>) => React.ComponentType<*> {
   if (!propName) {
@@ -64,7 +64,7 @@ export function withRPCRedux(
           rpc,
           store,
           actions,
-          mapStateToParams,
+          mapStateToParams: (state, args) => mapStateToParams(state, args, this.props),
           transformParams,
         });
         const props = {
