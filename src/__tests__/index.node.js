@@ -156,6 +156,7 @@ test('createRPCHandler error in start reducer', async t => {
       },
       success: () => {
         t.fail('should not call success');
+        return 'success';
       },
       failure: () => {
         t.fail('should not call failure');
@@ -197,6 +198,7 @@ test('createRPCHandler error in failure reducer', async t => {
       },
       success: () => {
         t.fail('should not call success');
+        return 'success';
       },
       failure: () => {
         throw new Error('Fail');
