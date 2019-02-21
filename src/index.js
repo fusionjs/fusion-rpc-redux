@@ -21,17 +21,17 @@ type RPCReactorsType<TType, TPayload> = {
   failure: Reactor<TType, TPayload>,
 };
 
-type RPCReducersType<S, A: ActionType> = {
+type RPCReducersType<S, A: ActionType> = {|
   start?: Reducer<S, A>,
   success?: Reducer<S, A>,
   failure?: Reducer<S, A>,
-};
+|};
 
-type NormalizedRPCReducersType<S, A: ActionType> = {
+type NormalizedRPCReducersType<S, A: ActionType> = {|
   start: Reducer<S, A>,
   success: Reducer<S, A>,
   failure: Reducer<S, A>,
-};
+|};
 
 function camelUpper(key: string): string {
   return key.replace(/([A-Z])/g, '_$1').toUpperCase();
